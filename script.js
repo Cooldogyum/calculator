@@ -23,3 +23,26 @@ document.addEventListener('click', e => {
         calculator.evaluate();
     }
 });
+
+document.addEventListener('keydown', e => {
+    if (!isNaN(e.key) || e.key === '.') {
+        calculator.addDigit(e.key);
+        return;
+    }
+    if (e.key === 'Enter') {
+        calculator.evaluate();
+        return;
+    }
+    if (e.key === 'Backspace') {
+        calculator.removeDigit();
+        return;
+    }
+    if (e.key === 'Delete') {
+        calculator.clear();
+        return;
+    }
+    if (new RegExp(/\*|\/|\+|\-/).test(e.key)) {
+        calculator.chooseOperation(e.key);
+        return;
+    }
+});
