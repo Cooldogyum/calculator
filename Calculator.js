@@ -67,6 +67,7 @@ export default class Calculator {
                 result = this.secondaryOperand * this.primaryOperand;
                 break;
             case '÷':
+                if (this.primaryOperand === 0) return;
                 result = this.secondaryOperand / this.primaryOperand;
                 break;
             case '+':
